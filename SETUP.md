@@ -89,14 +89,28 @@ RIZBOT-IDX/
 - Node.js (v14 or higher)
 - PostgreSQL (v12 or higher)
 - npm or yarn
+- Docker & Docker Compose (optional)
 
-### 1. Clone the Repository
+### Option 1: Quick Setup Script
+
+```bash
+git clone https://github.com/AIRIZ24/RIZBOT-IDX.git
+cd RIZBOT-IDX
+chmod +x setup.sh
+./setup.sh
+```
+
+Then follow the on-screen instructions.
+
+### Option 2: Manual Setup
+
+#### 1. Clone the Repository
 ```bash
 git clone https://github.com/AIRIZ24/RIZBOT-IDX.git
 cd RIZBOT-IDX
 ```
 
-### 2. Backend Setup
+#### 2. Backend Setup
 
 ```bash
 cd backend
@@ -119,7 +133,7 @@ npm run dev
 
 The backend will run on http://localhost:5000
 
-### 3. Frontend Setup
+#### 3. Frontend Setup
 
 ```bash
 cd frontend
@@ -135,6 +149,34 @@ npm start
 ```
 
 The frontend will run on http://localhost:3000
+
+### Option 3: Docker Setup
+
+The easiest way to run the entire stack:
+
+```bash
+# Clone the repository
+git clone https://github.com/AIRIZ24/RIZBOT-IDX.git
+cd RIZBOT-IDX
+
+# Start all services with Docker Compose
+docker-compose up -d
+
+# The application will be available at:
+# Frontend: http://localhost:3000
+# Backend API: http://localhost:5000
+# PostgreSQL: localhost:5432
+```
+
+To stop the services:
+```bash
+docker-compose down
+```
+
+To view logs:
+```bash
+docker-compose logs -f
+```
 
 ## Environment Variables
 
