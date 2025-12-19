@@ -35,16 +35,16 @@ A full-stack trading web application with real-time market data, portfolio manag
 - WebSocket Server
 - bcrypt
 
-## 📦 Quick Start
+## 📦 Installation
 
-See [SETUP.md](./SETUP.md) for detailed installation instructions.
+See [QUICKSTART.md](./QUICKSTART.md) for the fastest setup, or [SETUP.md](./SETUP.md) for detailed instructions.
 
 ### Prerequisites
 - Node.js v14+
-- PostgreSQL v12+
+- PostgreSQL v12+ (or use Docker)
 - npm or yarn
 
-### Installation
+### Quick Install
 
 1. **Clone the repository**
    ```bash
@@ -76,9 +76,28 @@ See [SETUP.md](./SETUP.md) for detailed installation instructions.
 
 ## 📖 Documentation
 
-- [Setup Guide](./SETUP.md) - Detailed installation and configuration
-- API Documentation - See SETUP.md for API endpoints
-- Database Schema - See SETUP.md for database structure
+- [📚 Quick Start Guide](./QUICKSTART.md) - Get started in 5 minutes
+- [⚙️ Setup Guide](./SETUP.md) - Detailed installation and configuration
+- [🔌 API Documentation](./API.md) - Complete API reference
+- [✨ Features](./FEATURES.md) - Detailed feature list and technical specs
+- [🐳 Docker Setup](./docker-compose.yml) - Container orchestration
+
+## 📦 Quick Start
+
+**Using Docker (Recommended):**
+```bash
+docker-compose up -d
+# Visit http://localhost:3000
+```
+
+**Manual Setup:**
+```bash
+./setup.sh  # Run setup script
+cd backend && npm run init-db && npm run dev  # Start backend
+cd frontend && npm start  # Start frontend
+```
+
+See [QUICKSTART.md](./QUICKSTART.md) for detailed instructions.
 
 ## 🎯 Usage
 
