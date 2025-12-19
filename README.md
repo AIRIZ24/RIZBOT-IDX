@@ -80,6 +80,7 @@ See [QUICKSTART.md](./QUICKSTART.md) for the fastest setup, or [SETUP.md](./SETU
 - [⚙️ Setup Guide](./SETUP.md) - Detailed installation and configuration
 - [🔌 API Documentation](./API.md) - Complete API reference
 - [✨ Features](./FEATURES.md) - Detailed feature list and technical specs
+- [🔒 Security](./SECURITY.md) - Security analysis and recommendations
 - [🐳 Docker Setup](./docker-compose.yml) - Container orchestration
 
 ## 📦 Quick Start
@@ -116,6 +117,7 @@ See [QUICKSTART.md](./QUICKSTART.md) for detailed instructions.
 - SQL injection protection
 - CORS enabled
 - Environment variables for sensitive data
+- **Note**: Rate limiting not implemented - see [SECURITY.md](./SECURITY.md) for production recommendations
 
 ## 📁 Project Structure
 

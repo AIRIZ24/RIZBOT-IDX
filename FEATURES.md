@@ -198,11 +198,13 @@ RIZBOT Trading Platform is a full-stack web application that simulates a real tr
 - Horizontal scaling ready
 
 ### Security
-- Password hashing
+- Password hashing (bcrypt)
 - JWT token validation
-- SQL injection prevention
+- SQL injection prevention (parameterized queries)
 - CORS configuration
 - Environment-based secrets
+- Input validation
+- **Note**: Rate limiting not implemented (see [SECURITY.md](./SECURITY.md) for details and recommendations)
 
 ## Future Enhancement Possibilities
 
@@ -255,11 +257,13 @@ RIZBOT Trading Platform is a full-stack web application that simulates a real tr
 3. **Market Orders Only**: No limit or stop orders
 4. **Limited Stocks**: Only 5 symbols available
 5. **No Persistence of Market State**: Prices reset on server restart
-6. **No Rate Limiting**: API calls are not rate-limited
+6. **No Rate Limiting**: API calls are not rate-limited (see [SECURITY.md](./SECURITY.md))
 7. **Basic Error Handling**: Could be more comprehensive
 8. **No Email Verification**: Accounts are immediately active
 9. **No Password Recovery**: Cannot reset forgotten passwords
 10. **Single User Session**: No multi-device session management
+
+**For Production**: See [SECURITY.md](./SECURITY.md) for security recommendations before deployment.
 
 ## Browser Compatibility
 
