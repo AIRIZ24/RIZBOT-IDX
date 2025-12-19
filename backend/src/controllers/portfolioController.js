@@ -90,7 +90,7 @@ exports.placeOrder = async (req, res) => {
 
       if (portfolioResult.rows.length > 0) {
         const existing = portfolioResult.rows[0];
-        const newQuantity = parseInt(existing.quantity) + parseInt(quantity);
+        const newQuantity = existing.quantity + quantity;
         const newAveragePrice = ((existing.quantity * existing.average_price) + totalAmount) / newQuantity;
 
         await client.query(

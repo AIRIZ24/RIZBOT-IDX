@@ -40,10 +40,12 @@ exports.updateMarketData = async () => {
     const stocks = result.rows;
 
     for (const stock of stocks) {
+      const currentPrice = parseFloat(stock.current_price);
+      
       // Random price change between -3% and +3%
-      const changePercent = (Math.random() * 6 - 3).toFixed(2);
-      const priceChange = (stock.current_price * changePercent) / 100;
-      const newPrice = (parseFloat(stock.current_price) + priceChange).toFixed(2);
+      const changePercent = parseFloat((Math.random() * 6 - 3).toFixed(2));
+      const priceChange = (currentPrice * changePercent) / 100;
+      const newPrice = (currentPrice + priceChange).toFixed(2);
 
       await pool.query(
         'UPDATE market_data SET current_price = $1, change_percent = $2, updated_at = CURRENT_TIMESTAMP WHERE symbol = $3',

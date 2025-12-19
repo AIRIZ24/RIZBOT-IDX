@@ -1,10 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authService } from '../services/api';
+import type { User } from '../types';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  user?: User | null;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ user: propUser }) => {
   const navigate = useNavigate();
-  const user = authService.getUser();
+  const user = propUser || authService.getUser();
 
   const handleLogout = () => {
     authService.logout();

@@ -16,7 +16,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ stock, orderType, onClose, onSucc
 
   if (!stock) return null;
 
-  const price = 'current_price' in stock ? stock.current_price : stock.current_price;
+  const price = stock.current_price;
   const symbol = stock.symbol;
   const name = stock.name;
 

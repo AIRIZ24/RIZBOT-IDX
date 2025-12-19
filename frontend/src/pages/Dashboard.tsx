@@ -8,7 +8,7 @@ import OrderForm from '../components/OrderForm';
 import { useWebSocket } from '../hooks/useWebSocket';
 import { portfolioService } from '../services/portfolio';
 import { authService } from '../services/api';
-import type { Stock, Portfolio, Transaction } from '../types';
+import type { Stock, Portfolio, Transaction, User } from '../types';
 
 const Dashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -18,6 +18,7 @@ const Dashboard: React.FC = () => {
   const [selectedStock, setSelectedStock] = useState<Stock | Portfolio | null>(null);
   const [orderType, setOrderType] = useState<'BUY' | 'SELL'>('BUY');
   const [showOrderForm, setShowOrderForm] = useState(false);
+  const [userBalance, setUserBalance] = useState<User | null>(authService.getUser());
 
   useEffect(() => {
     if (!authService.isAuthenticated()) {
@@ -55,15 +56,19 @@ const Dashboard: React.FC = () => {
 
   const handleOrderSuccess = async () => {
     await loadData();
-    // Refresh user data
-    const updatedUser = await authService.getCurrentUser();
-    localStorage.setItem('user', JSON.stringify(updatedUser));
-    window.location.reload(); // Reload to update balance in navbar
+    // Refresh user data without page reload
+    try {
+      const updatedUser = await authService.getCurrentUser();
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+      setUserBalance(updatedUser);
+    } catch (error) {
+      console.error('Error updating user data:', error);
+    }
   };
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <Navbar />
+      <Navbar user={userBalance} />
       
       <div className="container mx-auto px-4 py-8">
         <div className="mb-4 flex items-center justify-between">

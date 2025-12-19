@@ -1,5 +1,5 @@
 import api from './api';
-import type { Portfolio, Transaction, OrderRequest } from '../types';
+import type { Portfolio, Transaction, OrderRequest, OrderResponse } from '../types';
 
 export const portfolioService = {
   getPortfolio: async (): Promise<Portfolio[]> => {
@@ -12,8 +12,8 @@ export const portfolioService = {
     return response.data;
   },
 
-  placeOrder: async (order: OrderRequest): Promise<any> => {
-    const response = await api.post('/order', order);
+  placeOrder: async (order: OrderRequest): Promise<OrderResponse> => {
+    const response = await api.post<OrderResponse>('/order', order);
     return response.data;
   }
 };

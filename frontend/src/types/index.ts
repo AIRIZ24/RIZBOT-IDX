@@ -63,3 +63,12 @@ export interface OrderRequest {
   quantity: number;
   price: number;
 }
+
+export interface OrderResponse {
+  message: string;
+  type: 'BUY' | 'SELL';
+  symbol: string;
+  quantity: number;
+  price: number;
+  totalAmount: number;
+}
